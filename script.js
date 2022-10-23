@@ -43,11 +43,17 @@ for (let i = 0; i < specItem.length; i++) {
 // * === Part 5
 // *  a. Access the Past Races list and remove Chicago.
 
-// document.querySelectorAll("#past-races").forEach((text) => {
+// document.querySelectorAll("#past-races > li").forEach((text) => {
 //   if (text.textContent === "Chicago") {
 //     document.querySelector("#past-races").removeChild(text);
 //   }
 // });
+
+for (text of document.querySelectorAll("#past-races > li")) {
+  if (text.textContent === "Chicago") {
+    document.querySelector("#past-races").removeChild(text);
+  }
+}
 
 // const rmvChicago = function () {
 //   document.querySelector("#past-races > li").removeChild("Chicago");
