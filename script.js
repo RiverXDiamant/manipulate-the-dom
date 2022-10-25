@@ -75,7 +75,7 @@ document.querySelector("#past-races").appendChild(li);
 // create new elements the append in order to add to Dom's Adventures -> main, heading, paragraph text
 
 const blogPost = document.createElement("div");
-blogPost.classList.add(".blog-post");
+blogPost.classList.add("blog-post"); // ! <--- Don't add a dot when adding class name!!!
 const headingTwo = document.createElement("h2");
 headingTwo.textContent = "Santa Monica";
 const pEl = document.createElement("p");
@@ -86,7 +86,7 @@ document.querySelector(".main").appendChild(blogPost);
 blogPost.appendChild(headingTwo);
 blogPost.appendChild(pEl);
 
-// * === Part 8
+// * === Part 8 ~ Use provided
 // *  a. Load a random DOM quote on page refresh.
 // *  b. Query select the #quote-title ID element and add a click event handler.
 // ! That event handler should use the function randomQuotewhenever #quote-title is clicked.
@@ -105,3 +105,36 @@ document.querySelector("#quote-title").addEventListener("click", (event) => {
 // *  a. Select all .blog-post class elements.
 // *  b. Iterate through the list of .blog-post class elements
 // *  c. Apply two event handlers to each node. The first event handler should be listening for (mouseout) events while the second handler should be listening for (mouseenter) events.
+
+// for (blogEntry of blogPost) {
+//   blogPost.addEventListener("mouseout", (event) => {
+//     event.currentTarget.classList.toggle("purple");
+//   });
+//   blog.currentTarget.classList.toggle("red");
+// }
+
+// for (blogEntry of document.querySelectorAll(".blog-post")) {
+//   if (blogEntry == document.querySelector(".blog-post")) {
+//     document
+//       .querySelectorAll(".blog-post")
+//       .addEventListener("mouseout", (event) => {
+//         event.currentTarget.classList.toggle("purple");
+//       });
+//   }
+//   if (blogEntry == document.querySelector(".blog-post")) {
+//     document
+//       .querySelectorAll(".blog-post")
+//       .addEventListener("mouseenter", (event) => {
+//         event.currentTarget.classList.toggle("red");
+//       });
+//   }
+// }
+
+document.querySelectorAll(".blog-post").forEach((blogEntry) => {
+  blogEntry.addEventListener("mouseout", (event) => {
+    event.currentTarget.classList.toggle("purple");
+  });
+  blogEntry.addEventListener("mouseenter", (event) => {
+    event.currentTarget.classList.toggle("red");
+  });
+});
